@@ -827,6 +827,12 @@ module ReVIEW
       captionblock("note", lines, caption)
     end
 
+    def column(lines, caption)
+      common_column_begin("", caption)
+      puts split_paragraph(lines).join("")
+      common_column_end("")
+    end
+
     def memo(lines, caption = nil)
       captionblock("memo", lines, caption)
     end

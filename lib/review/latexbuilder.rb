@@ -88,6 +88,13 @@ module ReVIEW
     def nonum_end(level)
     end
 
+    def column(lines, caption)
+      column_begin(nil, nil, caption)
+      blank
+      puts split_paragraph(lines).join("\n\n")
+      column_end(nil)
+    end
+
     def column_begin(level, label, caption)
       blank
       ## puts '\vspace{2zw}' 

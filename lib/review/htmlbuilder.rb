@@ -291,6 +291,10 @@ EOT
       puts '</div>'
     end
 
+    def column(lines, caption)
+      captionblock("column", lines, caption)
+    end
+
     def memo(lines, caption = nil)
       captionblock("memo", lines, caption)
     end

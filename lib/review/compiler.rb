@@ -150,6 +150,7 @@ module ReVIEW
     defblock :flushright, 0
     defblock :note, 0..1
     defblock :box, 0..1
+    defblock :column, 1
 
     defsingle :footnote, 2
     defsingle :comment, 1

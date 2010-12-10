@@ -173,6 +173,11 @@ class IDGXMLBuidlerTest < Test::Unit::TestCase
     assert_equal %Q|<?xml version="1.0" encoding="UTF-8"?>\n<doc xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/"><note><title aid:pstyle='note-title'>this is <b>test</b>&lt;&amp;&gt;_</title><p>test1test1.5</p><p>test<i>2</i></p></note>|, @builder.raw_result
   end
 
+  def test_column
+    @builder.column(["test1", "test1.5", "", "test<i>2</i>"], "this is @<b>{test}<&>_")
+    assert_equal %Q|<?xml version="1.0" encoding="UTF-8"?>\n<doc xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/"><column><title aid:pstyle="column-title">this is <b>test</b>&lt;&amp;&gt;_</title><p>test1test1.5</p><p>test<i>2</i></p></column>|, @builder.raw_result
+  end
+
   def test_memo
     @builder.memo(["test1", "test1.5", "", "test<i>2</i>"], "this is @<b>{test}<&>_")
     assert_equal %Q|<?xml version="1.0" encoding="UTF-8"?>\n<doc xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/"><memo><title aid:pstyle='memo-title'>this is <b>test</b>&lt;&amp;&gt;_</title><p>test1test1.5</p><p>test<i>2</i></p></memo>|, @builder.raw_result
